@@ -12,7 +12,7 @@ const Header = () => {
     <div className="min-h-screen bg-white">
       <header className="bg-white shadow-md py-4">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-          <img src="public/logo.svg" className="mainImage" />
+          <img src="src/images/logo.svg" className="mainImage" />
 
           <nav className="space-x-6">
             <a href="#" className="text-gray-800">

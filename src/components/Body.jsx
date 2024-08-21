@@ -11,13 +11,13 @@ const Body = () => {
   const [teacherData, setTeacherData] = useState([]);
 
   const StudentData = async () => {
-    const student = await axios.get("http://localhost:3005/api/getStudent");
+    const student = await axios.get("https://generation-global-backend.onrender.com/api/getStudent");
     setStudentData(student.data.data);
     console.log(student.data.data);
   };
 
   const TeacherData = async () => {
-    const teacher = await axios.get("http://localhost:3005/api/getTeacher");
+    const teacher = await axios.get("https://generation-global-backend.onrender.com/api/getTeacher");
     setTeacherData(teacher.data.data);
     console.log(teacher.data.data);
   };
@@ -39,7 +39,7 @@ const Body = () => {
                 </span>
               </div>
               <img
-                src="public/student-platform.svg"
+                src="src/images/student-platform.svg"
                 alt="For Students"
                 className="w-full h-48 object-cover mb-4"
               />
@@ -78,7 +78,7 @@ const Body = () => {
                 </span>
               </div>
               <img
-                src="public/teacher-platform.svg"
+                src="src/images/teacher-platform.svg"
                 alt="For Teachers"
                 className="w-full h-48 object-cover mb-4"
               />
