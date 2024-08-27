@@ -6,7 +6,7 @@
 }
 .studentTitle {
   font-family: "Brandon Grotesque", Arial, sans-serif;
-  color: var(--body-color);
+  color: white;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-align: center;
@@ -21,6 +21,7 @@
   text-align: center;
   margin-bottom: 30px;
   font-size: large;
+  color: white;
 }
 
 .studentDescription {
@@ -33,6 +34,7 @@
   width: 70%;
   text-align: center;
   margin-left: 20%;
+  color: white;
 }
 .teacherDescription {
   color: var(--body-color);
@@ -44,6 +46,7 @@
   width: 70%;
   text-align: center;
   margin-left: 20%;
+  color: white;
 }
 p {
   display: block;
@@ -63,9 +66,11 @@ p {
 }
 .studentFeatures {
   margin-top: 5%;
+  color: white !important;
 }
 .teacherFeatures {
   margin-top: 5%;
+  color: white !important;
 }
 .footerImage {
   width: 65%;
@@ -97,4 +102,176 @@ p {
 }
 .text-sm {
   color: rgb(215, 218, 218);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  background-color: #445773;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+.TextColor {
+  color: white !important;
+}
+header {
+  background-color: rgb(55, 65, 94);
+}
+
+.logo img {
+  width: 150px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-buttons button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.join-free {
+  font-weight: bold;
+}
+
+.login {
+  font-weight: normal;
+}
+
+.content {
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 40px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 250px;
+}
+.bodyarea {
+  background-color: rgb(68, 86, 115);
+}
+
+.cardColor {
+  background-color: rgb(68, 86, 115) !important;
+}
+
+.card img {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  color: #333333;
+}
+
+.signup-button {
+  background-color: #20b2aa;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.signup-button:hover {
+  background-color: #2e8b57;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #34495e;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item .nav-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.content {
+  margin-top: -150px;
+  text-align: center;
+}
+
+.card img {
+  display: block;
+  margin: 0 auto;
+}
+
+.footer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  background-color: rgb(55, 65, 94) !important;
+  padding: 40px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.TitleStudentSignUp {
+  font-size: xx-large;
+  margin: 10%;
+}
+
+.textColor {
+  color: black;
+}
+.mr-2 {
+  height: 40px;
+  width: 40px;
 }

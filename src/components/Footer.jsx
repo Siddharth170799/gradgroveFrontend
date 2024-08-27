@@ -126,7 +126,6 @@ function Footer() {
                   </li>
                 </ul>
               </div>
-
               <div
                 className="flex flex-col items-center md:items-start space-y-4"
                 style={{ marginRight: "10%" }}
@@ -139,7 +138,6 @@ function Footer() {
                     Q
                   </button>
                 </div>
-
                 <div className="text-center md:text-left space-y-4">
                   <p className="text-sm">
                     Copyright © 2016-2024 by the Tony Blair Institute for Global

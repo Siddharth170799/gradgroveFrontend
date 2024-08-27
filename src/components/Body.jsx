@@ -3,21 +3,23 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const Body = () => {
   const { t, i18n } = useTranslation();
 
   const [studentData, setStudentData] = useState([]);
   const [teacherData, setTeacherData] = useState([]);
+  const navigate = useNavigate();
 
   const StudentData = async () => {
-    const student = await axios.get("https://generation-global-backend.onrender.com/api/getStudent");
+    const student = await axios.get(import.meta.env.VITE_STUDENT_API_URL);
     setStudentData(student.data.data);
     console.log(student.data.data);
   };
 
   const TeacherData = async () => {
-    const teacher = await axios.get("https://generation-global-backend.onrender.com/api/getTeacher");
+    const teacher = await axios.get(import.meta.env.VITE_TEACHER_API_URL);
     setTeacherData(teacher.data.data);
     console.log(teacher.data.data);
   };
@@ -28,11 +30,11 @@ const Body = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bodyarea">
       <main className="py-12">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
           {studentData.map((item, id) => (
-            <div key={id} className="p-6 bg-white">
+            <div key={id} className="p-6 bg-white cardColor">
               <div className="mb-4">
                 <span className="bg-indigo-500 text-white px-3 py-1 rounded-full">
                   {t("for_students")}
@@ -43,7 +45,6 @@ const Body = () => {
                 alt="For Students"
                 className="w-full h-48 object-cover mb-4"
               />
-
               <h2 className="studentTitle">{t("student_title")}</h2>
               <p className="studentDescription">{t("student_description")}</p>
               <ul className="list-disc pl-6 text-gray-700 mb-4 studentFeatures">
@@ -52,7 +53,10 @@ const Body = () => {
                 <li>{t("student_feature3")}</li>
                 <li>{t("student_feature4")}</li>
               </ul>
-              <button className="text-white px-6 py-2 rounded-lg mt-4 studentButton">
+              <button
+                className="text-white px-6 py-2 rounded-lg mt-4 studentButton"
+                onClick={() => navigate("/SignUpOptions")}
+              >
                 {t("start_adventure")}
               </button>
               <div className="mt-4 flex justify-center space-x-4">
@@ -69,9 +73,8 @@ const Body = () => {
               </div>
             </div>
           ))}
-
           {teacherData.map((item, id) => (
-            <div key={id} className="p-6 bg-white">
+            <div key={id} className="p-6 bg-white cardColor">
               <div className="mb-4">
                 <span className="bg-indigo-500 text-white px-3 py-1 rounded-full">
                   {t("for_teachers")}
@@ -90,7 +93,10 @@ const Body = () => {
                 <li>{t("teacher_feature3")}</li>
                 <li>{t("teacher_feature4")}</li>
               </ul>
-              <button className="text-white px-6 py-3 rounded-lg teacherButton">
+              <button
+                className="text-white px-6 py-3 rounded-lg teacherButton"
+                onClick={() => navigate("/SignUpOptions")}
+              >
                 {t("start_adventure")}
               </button>
               <div className="mt-4 flex justify-center space-x-4">
