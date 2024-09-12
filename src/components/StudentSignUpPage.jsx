@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const SignUpPage = () => {
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState("");
-  const [textColor, settextColor] = useState("");
+  const [dob, setDob] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [fieldStudy, setFieldStudy] = useState("");
@@ -86,24 +86,24 @@ const SignUpPage = () => {
     }
   };
 
-  const HandletextColorChange = (e) => {
-    const selecttextColor = e.target.value;
-    settextColor(selecttextColor);
+  const HandleDobChange = (e) => {
+    const birthDetails = e.target.value;
+    setDob(birthDetails);
 
-    const details = selecttextColor.split("-");
+    const details = birthDetails.split("-");
     setAge(2024 - details[0]);
   };
 
   const postSignUpDetails = async (e) => {
     e.preventDefault();
 
-    if (name && textColor && gender && fieldStudy && email && password) {
+    if (name && dob && gender && fieldStudy && email && password) {
       const hashedPassword = await bcrypt.hash(password, 10);
       const details = await axios.post(
         "http://localhost:3005/api/studentSignUpDetails",
         {
           name,
-          textColor,
+          dob,
           age,
           gender,
           fieldStudy,
@@ -127,7 +127,7 @@ const SignUpPage = () => {
 
   return (
     <div className="main-container">
-      <header className="header flex justify-between items-center p-4 bg-gray-800 text-white">
+      <header className="header flex justify-between items-center p-4 text-white navbar">
         <div className="logo">
           <img src="src/images/logo.svg" alt="Logo" />
         </div>
@@ -155,8 +155,8 @@ const SignUpPage = () => {
         </h1>
 
         <form className="form space-y-6" onSubmit={postSignUpDetails}>
-          <div className="form-group flex items-center space-x-4">
-            <label htmlFor="name" className="w-1/4">
+          <div className="form-group">
+            <label htmlFor="name" className="block font-semibold">
               Name
             </label>
             <input
@@ -164,29 +164,30 @@ const SignUpPage = () => {
               id="name"
               value={name}
               onChange={handleNameChange}
-              className="form-input w-full p-2 border border-gray-300 rounded 
-              textColor"
+              className="form-input w-full p-2 border border-gray-300 rounded textColor"
               required
             />
-            {nameError && <div className="text-red-500">{nameError}</div>}
+            {nameError && (
+              <div className="text-red-500 text-sm">{nameError}</div>
+            )}
           </div>
 
-          <div className="form-group flex items-center space-x-4">
-            <label htmlFor="textColor" className="w-1/4">
+          <div className="form-group">
+            <label htmlFor="dob" className="block font-semibold">
               Date of Birth
             </label>
             <input
               type="date"
-              id="textColor"
+              id="dob"
               className="form-input w-full p-2 border border-gray-300 rounded textColor"
-              value={textColor}
-              onChange={HandletextColorChange}
+              value={dob}
+              onChange={HandleDobChange}
               required
             />
           </div>
 
-          <div className="form-group flex items-center space-x-4">
-            <label htmlFor="age" className="w-1/4">
+          <div className="form-group">
+            <label htmlFor="age" className="block font-semibold">
               Age
             </label>
             <input
@@ -198,8 +199,8 @@ const SignUpPage = () => {
             />
           </div>
 
-          <div className="form-group flex items-center space-x-4">
-            <label htmlFor="gender" className="w-1/4">
+          <div className="form-group">
+            <label htmlFor="gender" className="block font-semibold">
               Gender
             </label>
             <select
@@ -215,8 +216,8 @@ const SignUpPage = () => {
             </select>
           </div>
 
-          <div className="form-group flex items-center space-x-4">
-            <label htmlFor="fieldOfStudy" className="w-1/4">
+          <div className="form-group">
+            <label htmlFor="fieldOfStudy" className="block font-semibold">
               Field of Study
             </label>
             <select
@@ -246,11 +247,11 @@ const SignUpPage = () => {
             </select>
           </div>
 
-          <div className="form-group flex items-center space-x-4">
-            <label htmlFor="phone" className="w-1/4">
+          <div className="form-group">
+            <label htmlFor="phone" className="block font-semibold">
               Phone
             </label>
-            <div className="flex w-full">
+            <div className="flex">
               <input
                 type="text"
                 id="phone"
@@ -265,60 +266,63 @@ const SignUpPage = () => {
               >
                 Send OTP
               </button>
-              {phoneNumberError && (
-                <div className="text-red-500">{phoneNumberError}</div>
-              )}
             </div>
+            {phoneNumberError && (
+              <div className="text-red-500 text-sm">{phoneNumberError}</div>
+            )}
           </div>
 
-          <div className="form-group flex items-center space-x-4">
-            <label htmlFor="email" className="w-1/4">
+          <div className="form-group">
+            <label htmlFor="email" className="block font-semibold">
               Email
             </label>
             <input
               type="email"
               id="email"
               className="form-input w-full p-2 border border-gray-300 rounded textColor"
+              required
               value={email}
               onChange={handleEmail}
             />
-            {emailError && <div className="text-red-500">{emailError}</div>}
-          </div>
-
-          <div className="form-group flex items-center space-x-4">
-            <label htmlFor="password" className="w-1/4">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="form-input w-full p-2 border border-gray-300 rounded textColor"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-            {passwordError && (
-              <div className="text-red-500">{passwordError}</div>
+            {emailError && (
+              <div className="text-red-500 text-sm">{emailError}</div>
             )}
           </div>
 
+          <div className="form-group flex items-center">
+            <div className="flex-1">
+              <label htmlFor="password" className="block font-semibold mb-1">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                className={`form-input w-full p-2 border rounded ${
+                  passwordError ? "border-red-500" : "border-gray-300"
+                } textColor`}
+                required
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </div>
+          </div>
+          {passwordError && (
+            <div
+              className="text-red-500 text-sm ml-2"
+              style={{ width: "300px" }}
+            >
+              {passwordError}
+            </div>
+          )}
+
           <button
             type="submit"
-            className="submit-button bg-blue-600 text-white px-6 py-2 rounded"
+            className="btn bg-blue-600 text-white px-4 py-2 rounded"
           >
-            Sign Up
+            Submit
           </button>
         </form>
       </section>
-
-      <footer className="footer mt-8 p-4 text-center">
-        <a href="#" className="mr-4">
-          About
-        </a>
-        <a href="#" className="mr-4">
-          Privacy Policy
-        </a>
-        <a href="#">Support</a>
-      </footer>
     </div>
   );
 };

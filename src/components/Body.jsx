@@ -1,39 +1,21 @@
-import React from "react";
-import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 const Body = () => {
   const { t, i18n } = useTranslation();
 
-  const [studentData, setStudentData] = useState([]);
-  const [teacherData, setTeacherData] = useState([]);
+  const studentData = useFetch(import.meta.env.VITE_STUDENT_API_URL);
+  const teacherData = useFetch(import.meta.env.VITE_TEACHER_API_URL);
+
   const navigate = useNavigate();
-
-  const StudentData = async () => {
-    const student = await axios.get(import.meta.env.VITE_STUDENT_API_URL);
-    setStudentData(student.data.data);
-    console.log(student.data.data);
-  };
-
-  const TeacherData = async () => {
-    const teacher = await axios.get(import.meta.env.VITE_TEACHER_API_URL);
-    setTeacherData(teacher.data.data);
-    console.log(teacher.data.data);
-  };
-
-  useEffect(() => {
-    StudentData();
-    TeacherData();
-  }, []);
 
   return (
     <div className="bodyarea">
       <main className="py-12">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {studentData.map((item, id) => (
+          {studentData?.map((item, id) => (
             <div key={id} className="p-6 bg-white cardColor">
               <div className="mb-4">
                 <span className="bg-indigo-500 text-white px-3 py-1 rounded-full">
@@ -73,7 +55,7 @@ const Body = () => {
               </div>
             </div>
           ))}
-          {teacherData.map((item, id) => (
+          {teacherData?.map((item, id) => (
             <div key={id} className="p-6 bg-white cardColor">
               <div className="mb-4">
                 <span className="bg-indigo-500 text-white px-3 py-1 rounded-full">
