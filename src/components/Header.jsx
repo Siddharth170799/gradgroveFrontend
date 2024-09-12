@@ -12,7 +12,7 @@ const Header = () => {
     <div className="min-h-screen">
       <header className="shadow-md py-4">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-          <img src="src/images/logo.svg" className="mainImage" />
+          <img src="src/images/Screenshot 2024-09-12 at 12.29.24 PM.png" className="mainImage" />
 
           <nav className="space-x-6">
             <a href="#" className="text-gray-800 TextColor">

@@ -100,7 +100,7 @@ const StudentLogin = () => {
     <div className="main-container">
       <header className="header">
         <div className="logo">
-          <img src="src/images/logo.svg" alt="Logo" />
+          <img src="src/images/Screenshot 2024-09-12 at 12.29.24 PM.png" alt="Logo" />
         </div>
       </header>
       <section style={{ backgroundColor: "rgb(68,86,115)" }}>

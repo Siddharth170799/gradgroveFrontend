@@ -129,7 +129,7 @@ const SignUpPage = () => {
     <div className="main-container">
       <header className="header flex justify-between items-center p-4 text-white navbar">
         <div className="logo">
-          <img src="src/images/logo.svg" alt="Logo" />
+          <img src="src/images/Screenshot 2024-09-12 at 12.29.24 PM.png" alt="Logo" />
         </div>
         <div className="nav-buttons flex items-center">
           <img src="src/images/SignUp.jpeg" alt="Join Icon" className="mr-2" />

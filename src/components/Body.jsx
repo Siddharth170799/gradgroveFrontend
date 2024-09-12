@@ -23,7 +23,7 @@ const Body = () => {
                 </span>
               </div>
               <img
-                src="src/images/student-platform.svg"
+                src="src/images/Screenshot 2024-09-12 at 12.29.52 PM.png"
                 alt="For Students"
                 className="w-full h-48 object-cover mb-4"
               />
@@ -63,7 +63,7 @@ const Body = () => {
                 </span>
               </div>
               <img
-                src="src/images/teacher-platform.svg"
+                src="src/images/Screenshot 2024-09-12 at 12.30.09 PM.png"
                 alt="For Teachers"
                 className="w-full h-48 object-cover mb-4"
               />
