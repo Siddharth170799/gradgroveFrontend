@@ -19,7 +19,8 @@ const StudentLogin = () => {
   const [displayError, setDisplayError] = useState("");
 
   const studentSignUpDetails = useFetch2(
-    import.meta.env.VITE_GET_STUDENT_SIGNUP_DETAILS_URL
+    
+    "https://gradgrove-backend2-2.onrender.com/api/studentSignUpDetails"
   );
 
   const handleEmail = (e) => {
@@ -38,7 +39,7 @@ const StudentLogin = () => {
     e.preventDefault();
 
     const hashedPassword = await bcrypt.hash(Password, 10);
-    await axios.post(import.meta.env.VITE_POST_STUDENT_LOGIN_DETAILS_URL, {
+    await axios.post("https://gradgrove-backend2-2.onrender.com/api/studentLoginDetails", {
       Email,
       Password: hashedPassword,
     });
@@ -63,7 +64,7 @@ const StudentLogin = () => {
     }
 
     const token = await axios.get(
-      import.meta.env.VITE_GET_STUDENT_LOGIN_TOKEN_URL
+      "https://gradgrove-backend2-2.onrender.com/api/getStudentLoginToken"
     );
 
     if (token) {

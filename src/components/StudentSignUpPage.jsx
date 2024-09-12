@@ -100,7 +100,7 @@ const SignUpPage = () => {
     if (name && dob && gender && fieldStudy && email && password) {
       const hashedPassword = await bcrypt.hash(password, 10);
       const details = await axios.post(
-        "http://localhost:3005/api/studentSignUpDetails",
+        "https://gradgrove-backend2-2.onrender.com/api/studentSignUpDetails",
         {
           name,
           dob,
@@ -114,7 +114,7 @@ const SignUpPage = () => {
       );
       console.log(details);
 
-      const token = await axios.get("http://localhost:3005/api/getToken");
+      const token = await axios.get("https://gradgrove-backend2-2.onrender.com/api/getToken");
       console.log(token.data);
       if (token) {
         Cookies.set("token", token.data, { expires: 7 });

@@ -6,8 +6,8 @@ import useFetch from "../../hooks/useFetch";
 const Body = () => {
   const { t, i18n } = useTranslation();
 
-  const studentData = useFetch(import.meta.env.VITE_STUDENT_API_URL);
-  const teacherData = useFetch(import.meta.env.VITE_TEACHER_API_URL);
+  const studentData = useFetch("https://gradgrove-backend2-2.onrender.com/api/getStudent");
+  const teacherData = useFetch("https://gradgrove-backend2-2.onrender.com/api/getTeacher");
 
   const navigate = useNavigate();
 
